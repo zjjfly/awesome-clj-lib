@@ -84,5 +84,3 @@
 ;           :verbosity 3,
 ;           :file [],
 ;           :daemon true}}
-
-(letfn)

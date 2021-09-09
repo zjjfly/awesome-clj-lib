@@ -54,7 +54,7 @@ record
 (dt/update-record ^Person record (inc :age))
 ; #com.github.zjjfly.awesome.useful.examples.Person{:name "jjzi", :age 2}
 (macroexpand '(dt/record-accessors User))
-(age record)
+(:age record)
 ;2
 
 ;debug
