@@ -1,29 +1,24 @@
 {:paths ["src/main/clj" "src/main/java" "src/main/resources" "target/classes"]
  :deps {org.clojure/clojure       {:mvn/version "1.10.1"}
         org.clojure/core.async {:mvn/version "1.2.603"}
-        korma {:mvn/version "0.4.3"}
         mysql/mysql-connector-java {:mvn/version "8.0.20"}
         com.cerner/clara-rules {:mvn/version "0.20.0"}
         com.taoensso/timbre       {:mvn/version "4.10.0"}
         org.clojure/spec.alpha {:mvn/version "0.2.187"}
-        cheshire {:mvn/version "5.10.0"}
-        aero {:mvn/version "1.1.6"}
+        cheshire/cheshire {:mvn/version "5.10.0"}
+        aero/aero {:mvn/version "1.1.6"}
         com.taoensso/nippy {:mvn/version "2.14.0"}
         org.clojure/tools.cli {:mvn/version "1.0.194"}
         com.cognitect/transit-clj {:mvn/version "1.0.324"}
         org.clojure/test.check {:mvn/version "1.0.0"}
         org.clojure/data.json {:mvn/version "1.0.0"}
         org.flatland/useful {:mvn/version "0.11.6"}
-        potemkin {:mvn/version "0.4.5"}
-        gloss {:mvn/version "0.2.6"}
+        potemkin/potemkin {:mvn/version "0.4.5"}
+        gloss/gloss {:mvn/version "0.2.6"}
         }
  :aliases {:test {:extra-paths ["test/clj"]
                   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.632"}}
                   :main-opts   ["-m" "kaocha.runner" "--no-capture-output"]}
-           :compile {:extra-paths ["build"]
-                   :extra-deps  {badigeon/badigeon {:mvn/version "0.0.13"}}
-                   :main-opts   ["-m" "build" "compile"]}
-           :clean {:extra-paths ["build"]
-                   :extra-deps  {badigeon/badigeon {:mvn/version "0.0.13"}}
-                   :main-opts   ["-m" "build" "clean"]}
-           }}
+           :build {:extra-paths ["build"]
+                   :deps {io.github.clojure/tools.build {:git/tag "v0.2.1" :git/sha "dd64636"}}
+                   :ns-default build}}}

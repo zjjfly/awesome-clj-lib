@@ -1,4 +1,4 @@
-(ns com.github.zjjfly.spec.examples
+(ns com.github.zjjfly.awesome.spec.examples
   (:require [clojure.spec.alpha :as spec]
             [clojure.spec.gen.alpha :as gen]))
 

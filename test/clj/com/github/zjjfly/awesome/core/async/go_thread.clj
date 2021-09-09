@@ -17,8 +17,8 @@
         thread-time (exec-time (async-thread-factorizer (repeat 1000 (* 29 982451653 )) 8))
         pipeline-time (exec-time (async-with-pipeline (repeat 1000 (* 29 982451653 )) 8))
         ]
-    (is (< (Math/abs (- go-time thread-time)) 30))
-    (is (< (Math/abs (- go-time pipeline-time)) 30))))
+    (is (< (Math/abs (- go-time thread-time)) 50))
+    (is (< (Math/abs (- go-time pipeline-time)) 50))))
 
 ;go和thread在有阻塞操作的时候,thread的性能比较好的
 (deftest block-test

@@ -57,5 +57,3 @@
 (def sc (gloss/string :utf-8 :delimiters ["\r\n" "\r"]))
 (io/decode-all sc (io/encode-all sc ["123" "345"]))
 ;["123" "345"]
-
-(io/decode-stream)
