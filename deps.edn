@@ -1,24 +1,29 @@
-{:paths ["src/main/clj" "src/main/java" "src/main/resources" "target/classes"]
- :deps {org.clojure/clojure       {:mvn/version "1.10.1"}
-        org.clojure/core.async {:mvn/version "1.2.603"}
-        mysql/mysql-connector-java {:mvn/version "8.0.20"}
-        com.cerner/clara-rules {:mvn/version "0.20.0"}
-        com.taoensso/timbre       {:mvn/version "4.10.0"}
-        org.clojure/spec.alpha {:mvn/version "0.2.187"}
-        cheshire/cheshire {:mvn/version "5.10.0"}
-        aero/aero {:mvn/version "1.1.6"}
-        com.taoensso/nippy {:mvn/version "2.14.0"}
-        org.clojure/tools.cli {:mvn/version "1.0.194"}
-        com.cognitect/transit-clj {:mvn/version "1.0.324"}
-        org.clojure/test.check {:mvn/version "1.0.0"}
-        org.clojure/data.json {:mvn/version "1.0.0"}
-        org.flatland/useful {:mvn/version "0.11.6"}
-        potemkin/potemkin {:mvn/version "0.4.5"}
-        gloss/gloss {:mvn/version "0.2.6"}
-        }
- :aliases {:test {:extra-paths ["test/clj"]
-                  :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.632"}}
-                  :main-opts   ["-m" "kaocha.runner" "--no-capture-output"]}
-           :build {:extra-paths ["build"]
-                   :deps {io.github.clojure/tools.build {:git/tag "v0.2.1" :git/sha "dd64636"}}
-                   :ns-default build}}}
+{:paths   ["src/main/clj" "src/main/java" "src/main/resources" "target/classes"]
+ :deps    {org.clojure/clojure        {:mvn/version "1.10.1"}
+           org.clojure/core.async     {:mvn/version "1.2.603"}
+           mysql/mysql-connector-java {:mvn/version "8.0.20"}
+           com.cerner/clara-rules     {:mvn/version "0.20.0"}
+           com.taoensso/timbre        {:mvn/version "4.10.0"}
+           org.clojure/spec.alpha     {:mvn/version "0.2.187"}
+           cheshire/cheshire          {:mvn/version "5.10.0"}
+           aero/aero                  {:mvn/version "1.1.6"}
+           com.taoensso/nippy         {:mvn/version "2.14.0"}
+           org.clojure/tools.cli      {:mvn/version "1.0.194"}
+           com.cognitect/transit-clj  {:mvn/version "1.0.324"}
+           org.clojure/test.check     {:mvn/version "1.0.0"}
+           org.clojure/data.json      {:mvn/version "1.0.0"}
+           org.flatland/useful        {:mvn/version "0.11.6"}
+           potemkin/potemkin          {:mvn/version "0.4.5"}
+           gloss/gloss                {:mvn/version "0.2.6"}
+           }
+ :aliases {:test       {:extra-deps {lambdaisland/kaocha {:mvn/version "1.60.945"}}
+                        :exec-fn    kaocha.runner/exec-fn
+                        :exec-args  {}}
+           :watch-test {:extra-deps {lambdaisland/kaocha {:mvn/version "1.60.945"}}
+                        :exec-fn    kaocha.runner/exec-fn
+                        :exec-args  {:watch?     true
+                                     :skip-meta  :slow
+                                     :fail-fast? true}}
+           :build      {:extra-paths ["build"]
+                        :extra-deps  {io.github.clojure/tools.build {:git/tag "v0.6.2" :git/sha "226fb52"}}
+                        :ns-default  build}}}
