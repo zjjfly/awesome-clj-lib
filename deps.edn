@@ -1,4 +1,4 @@
-{:paths   ["src/main/clj" "src/main/java" "src/main/resources" "target/classes"]
+{:paths   ["src/clj" "src/java" "src/resources" "target/classes"]
  :deps    {org.clojure/clojure        {:mvn/version "1.10.1"}
            org.clojure/core.async     {:mvn/version "1.2.603"}
            mysql/mysql-connector-java {:mvn/version "8.0.20"}

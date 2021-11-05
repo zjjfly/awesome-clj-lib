@@ -85,8 +85,8 @@
 (read-cp-config "composed.edn" {:resolver aero/resource-resolver})
 ;如果是一个map,则其中的key是#include中配置的文件名,value是实际的文件的路径
 (read-cp-config "composed.edn"
-                {:resolver {"webserver.edn" "src/main/resources/webserver.edn"
-                            "analytics.edn" "src/main/resources/analytics.edn"}})
+                {:resolver {"webserver.edn" "src/resources/webserver.edn"
+                            "analytics.edn" "src/resources/analytics.edn"}})
 ;{:webserver {:host "1.1.2.2", :port 8080}, :analytics {:factor 2.0, :mode :simple}}
 
 ;#merge 合并多个map
