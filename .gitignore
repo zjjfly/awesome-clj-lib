@@ -10,3 +10,5 @@ target
 
 # Project exclude paths
 /out/
+*.txt
+.portal

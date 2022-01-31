@@ -146,7 +146,7 @@
      (s/map inc)
      s/stream->seq)
 ;(2 3 4)
-;map如果操作的是clojure的seq，那么它会自动的调研->source转成stream
+;map如果操作的是clojure的seq，那么它会自动的调用->source转成stream
 (->> [1 2 3]
      (s/map inc)
      s/stream->seq)
