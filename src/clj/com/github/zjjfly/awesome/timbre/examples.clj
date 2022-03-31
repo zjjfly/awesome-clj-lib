@@ -69,3 +69,4 @@
 (timbre/merge-config!
   {:appenders {:spit (core-appenders/spit-appender {:fname "./my.log"})}})
 (info "hello")
+(delay)

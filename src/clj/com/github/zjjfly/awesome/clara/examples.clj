@@ -33,7 +33,7 @@
 
 
 (defrule animal-rule
-  [:or                                                      ;boolean表达式,一种应用于fact表达式至少的前缀布尔表达式,前缀可以是:or或:and
+  [:or                                                      ;boolean表达式,一种应用于fact表达式之上的前缀布尔表达式,前缀可以是:or或:and
    [:cat                                                    ;fact type
     [{age :age}]                                            ;解构
     (< age 10) (= ?age age)]                                ;fact表达式中的条件表达式
