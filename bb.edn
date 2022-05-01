@@ -1,0 +1,14 @@
+{:path ["script"]
+ :deps {local/deps {:local/root "."}}
+ :tasks
+ {:init (def log (Object.))
+  :enter (locking log
+           (println (str (:name (current-task))
+                      ":")
+             (java.util.Date.)))
+  :leave (println "finished " (:name (current-task)))
+  a (Thread/sleep 5000)
+  b (Thread/sleep 5000)
+  c {:depends [a b]}
+  d {:task (time (run 'c))}
+  sum (+ 1 2 3)}}
