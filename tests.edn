@@ -1,6 +1,0 @@
-#kaocha/v1
-    {:reporter                           kaocha.report.progress/report
-     :kaocha.plugin.randomize/randomize? false
-     :tests                              [{:id          :unit
-                                           :test-paths  ["test/clj"]
-                                           :ns-patterns [".*"]}]}
