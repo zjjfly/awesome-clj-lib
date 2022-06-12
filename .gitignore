@@ -12,6 +12,4 @@ target
 /out/
 *.txt
 .portal
-build
 .clj-kondo
-.socket-repl-port
