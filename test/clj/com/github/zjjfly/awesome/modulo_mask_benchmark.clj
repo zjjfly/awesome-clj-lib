@@ -1,4 +1,4 @@
-(ns com.github.zjjfly.awesome.core.async.modulo-mask-benchmark
+(ns com.github.zjjfly.awesome.modulo-mask-benchmark
   (:require [criterium.core :as criterium]
             [primitive-math :as primitive-math]))
 
