@@ -16,7 +16,9 @@
               (s/map inc)
               s/stream->seq)})
 
-;(http/start-server #'handler {:port 8080})
+(comment
+  (http/start-server #'handler {:port 8080})
+  )
 
 ;aleph也可以作为HTTP客户端，底层是使用的clj-http
 (-> @(http/get "https://www.baidu.com/")

@@ -1,6 +1,7 @@
 (ns awesome.spec.examples
   (:require [clojure.spec.alpha :as spec]
-            [clojure.spec.gen.alpha :as gen]))
+            [clojure.spec.gen.alpha :as gen]
+            [clojure.spec.test.alpha :as stest]))
 
 ;定义一个map spec,其中的key都是和当前namespace绑定的
 (def m-spec (spec/keys :req [::x ::y (or ::secret (and ::user ::pwd))]
@@ -58,11 +59,17 @@
   (+ start (long (rand (- end start)))))
 
 (spec/fdef ranged-rand
-        :args (spec/and (spec/cat :start int? :end int?)
-                     #(< (:start %) (:end %)))
-        :ret int?
-        :fn (spec/and #(>= (:ret %) (-> % :args :start))
-                   #(< (:ret %) (-> % :args :end))))
+           :args (spec/and (spec/cat :start int? :end int?)
+                           #(< (:start %) (:end %)))
+           :ret int?
+           :fn (spec/and #(>= (:ret %) (-> % :args :start))
+                         #(< (:ret %) (-> % :args :end))))
+
+;可以使用instrument对现有的函数进行修改，使得在调用它的时候执行相关的spec
+(stest/instrument `ranged-rand)
+(comment
+  (ranged-rand 1 -10)
+  )
 
 ;使用gen/sample来随机生成一个符合spec的值,常用于测试
 (gen/sample (spec/gen s))
